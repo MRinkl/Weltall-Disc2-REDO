@@ -1,0 +1,12 @@
+; WIP — not in pack/ until the Nisan map it jumps to exists (needs Disc 1 geometry).
+; R4: Ramsus' assault on Nisan, played as Elly. The chair's third session (map 617, entrance 3) shows it
+; as stills over actor 31's script 12. We leave for the new map before that script starts and come back
+; to the same party setup and the Ministry scene (map 273, entrance 12) the original goes to.
+map 617
+
+detour @0x0890 to Assault StartScriptWaitEnd actor31 script12@1
+Assault:
+    ScreenFade #1 #0 #0 #0 #30
+    Wait #30
+    ChangeMap #740 #0
+    StopAndHalt
