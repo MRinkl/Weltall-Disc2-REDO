@@ -50,3 +50,15 @@ both discs have been scanned for every value they set and test (needs Disc 1 in 
 - 303: the night before Mahanon (Yggdrasil); 290/296/301/302: Yggdrasil rooms
 - 164: Shevat hangar, Elly leaves for Golgoda; 656: Golgoda aftermath (Grahf); 650: Hammer; 653/655: Mahanon interior; 714: Merkava core
 - 728: the debug/menu map (567 messages), not for use
+
+## How Disc 2 scripts use progress (verified on the USA Disc 2 listings)
+
+- Field scripts on Disc 2 never write `var[000]`; they test it through the accumulator
+  (`IfAccEqual #N`, `IfAccGreater #N`), which holds the progress at script start. Weltall's
+  own documents write it with `SetVar var[000] #N`.
+- Values Disc 2 field scripts test: 279–283, 298–306, 320, 330, 339, 340, 349, 350 (plus
+  Disc 1 values on maps both discs share). Inside chapter 58 (263–280) only 279 and 280 are
+  tested on Disc 2, so R4's value will come from 264–278 once Disc 1's maps are scanned too.
+- The chair's sessions are picked by entrance (`var[002]`) on map 617, not by progress, and
+  flags in `var[248]` (bits 2, 3, 4, 8) mark which sessions have been seen. A sequence that
+  replaces a session must leave those bits as the session would.
