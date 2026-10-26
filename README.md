@@ -36,6 +36,10 @@ test that plays it against the original session. See the build order in the bibl
 - Weltall 0.8.x built with `--expansion` (or a stock build if it loads extra packs from
   `Content/Story`; to be verified).
 - Your own USA (or English undub) Xenogears disc images in Weltall's `Games` folder.
+- Optional: Perfect Works Build 0.11.4 unpacked into `Mods/PerfectWorks` (so that
+  `Mods/PerfectWorks/gamefiles` exists). With its Script on, every line this pack quotes
+  from the disc (`message X from map M message K`) is the mod's retranslation. Pre-patched
+  Perfect Works discs are not read by Weltall; only the mod's release archive is.
 
 ## Credits
 
