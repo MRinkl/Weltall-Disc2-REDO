@@ -28,7 +28,9 @@ below that goes beyond the script is design, labelled as such.
 1. **Canon first.** Every plot beat, line of exposition and character fate from the
    original Disc 2 stays. Narration is converted, not rewritten. Where the chair script
    already contains dialogue (Elly at the Soylent facility, Ramsus at Nisan, the Mahanon
-   argument), that dialogue is staged as the scene it describes.
+   argument), that dialogue is staged as the scene it describes, and quoted by reference
+   (`message X from map 617 message N`, an engine addition) so the scene speaks whichever
+   script the player runs: the original's or Perfect Works Build's retranslation.
 2. **Play what was told.** The default conversion for a narrated paragraph is: a map, the
    party walking through it, NPCs with lines, a trigger, a battle that already exists on
    the disc, then the original cutscene or Gazel scene.
