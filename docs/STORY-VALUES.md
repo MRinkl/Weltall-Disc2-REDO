@@ -30,7 +30,7 @@ both discs have been scanned for every value they set and test (needs Disc 1 in 
 
 | Seq. | Chapter | Value | Status |
 |---|---|---|---|
-| R4 Nisan assault (Elly) | 58 (263–280) | TBD | branch point found: map 617, entrance 3, `@0x0890 StartScriptWaitEnd actor31 script12@1`; rejoin: party Fei+9+Elly, `ChangeMap #273 #12` |
+| R4 Nisan assault (Elly) | 58 (263–280) | **269** | done, tests pass. The session plays at 268 (Weltall's own subtitle "Holy Mother Returns" sits there). Branch: map 617, entrance 3, `@0x0890 StartScriptWaitEnd actor31 script12@1`; rejoin: story 268, party Fei, 9, Elly, `ChangeMap #273 #12` |
 | R3 Soylent | 57 (252–262) | TBD | |
 | R2 Nortune | 57 (252–262) | TBD | |
 | R1 Nisan defence | 57 (252–262) | TBD | |

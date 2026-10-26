@@ -307,29 +307,26 @@ the loss of Gears and Ether all stand.
 
 ## 9. File layout
 
+Weltall gates exactly one pack folder, `Content/Story/disc2`, on the player's "Extended"
+choice (`FStoryPacks::ExpansionPack = "disc2"`); any other folder's documents apply to every
+game, and the `way back` and `subtitles` documents must be that pack's, one each. So the
+redo's documents live **inside** `disc2/`, beside Roman215's rematch and Mass Driver files,
+with a sequence prefix in their names, and extend his `subtitles.txt` and `way-back.txt`.
+
 ```
-pack/                          → Content/Story/disc2-redo/ in Weltall
-  00-subtitles.txt             one `subtitles` document for the whole pack
-  00-way-back.txt              every new story value → original fallback
-  10-nisan-defence-*.txt       R1
-  20-nortune-*.txt             R2
-  30-soylent-*.txt             R3
-  40-nisan-assault-*.txt       R4
-  50-mahanon-eve-*.txt         R5
-  60-mahanon-*.txt             R6
-  70-golgoda-*.txt             R7
-  80-merkava-elements.txt      R8
-  85-shevat-*.txt              R9
-  90-excalibur-*.txt           R10
-  95-epilogue-*.txt            R11
+pack/                          → Content/Story/disc2/ in Weltall (added or changed files only)
+  subtitles.txt                his, plus one `story` line per sequence
+  way-back.txt                 his, plus one row per new story value
+  nisan-assault-parting.txt    R4: the branch in the chair (map 617)
+  nisan-assault-town.txt       R4: map 740 from 93
+  nisan-assault-cathedral.txt  R4: map 741 from 95
+  soylent-*.txt                R3 …
+tests/                         → Tests/WeltallCore/Story/ in Weltall, one file per sequence
 docs/
   DESIGN-BIBLE.md              this file
-  MAP-REGISTER.md              new map IDs 730+, base maps, entrances, dots (filled as built)
-  STORY-VALUES.md              reserved var[000] values per sequence (filled from the disc)
+  MAP-REGISTER-disc2.md        the 205 field maps Disc 2 holds (generated)
+  STORY-VALUES.md              chapter table; values each sequence takes
 ```
-
-Packs load in folder-name order; documents in filename order. The numeric prefixes keep
-branch patches ahead of the maps they jump to.
 
 ## 10. Build order and gates
 
@@ -352,8 +349,8 @@ capture of the new scene.
   with `--expansion`, or a stock build if upstream agrees to load extra packs from the
   package folder (Weltall reads `Content/Story` at startup, so a stock build may already
   pick it up; verify on 0.8.x).
-- Upstream PR: a branch on a fork of Roman215/Weltall adding `Content/Story/disc2-redo/`
-  and a short `Docs/Story/disc2-redo.md`. Opened once step 2 above passes the tests, so
+- Upstream PR: a branch on a fork of Roman215/Weltall adding the files to
+  `Content/Story/disc2/` and a test per sequence. Opened once step 2 above passes the tests, so
   the first PR is reviewable and runnable rather than a design document.
 - Platforms: Windows and Linux (Weltall's). Android is not reachable with Weltall today;
   Quiver Launcher on Android installs APKs only.

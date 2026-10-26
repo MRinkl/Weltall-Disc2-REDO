@@ -19,14 +19,16 @@ loose ends each closes, the two twists, the file layout and the build order.
 ## Layout
 
 ```
-pack/   story documents → copy to <Weltall>/Weltall/Content/Story/disc2-redo/
+pack/   story documents → copy into <Weltall>/Weltall/Content/Story/disc2/ (Weltall gates only that folder on "Extended")
+tests/  the Catch2 tests that play each sequence against the original, for Weltall's Tests/WeltallCore/Story/
 docs/   design bible, map register, story-value register
 ```
 
 ## Status
 
-Design. No pack files yet. The first playable sequence is R4 (Ramsus' assault on Nisan,
-played as Elly); see the build order in the bible.
+R4 (Ramsus' assault on Nisan, played as Elly) is written and under test: three documents,
+a branch in the chair map, two maps of their own on Nisan's town and cathedral front, and a
+test that plays it against the original session. See the build order in the bible.
 
 ## Requirements
 
