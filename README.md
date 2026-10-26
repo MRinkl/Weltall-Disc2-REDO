@@ -21,6 +21,7 @@ loose ends each closes, the two twists, the file layout and the build order.
 ```
 pack/   story documents → copy into <Weltall>/Weltall/Content/Story/disc2/ (Weltall gates only that folder on "Extended")
 tests/  the Catch2 tests that play each sequence against the original, for Weltall's Tests/WeltallCore/Story/
+engine/ the Weltall source changes the pack needs (also in the upstream PR): sprite slots from other maps
 docs/   design bible, map register, story-value register
 ```
 

@@ -32,9 +32,13 @@ below that goes beyond the script is design, labelled as such.
 2. **Play what was told.** The default conversion for a narrated paragraph is: a map, the
    party walking through it, NPCs with lines, a trigger, a battle that already exists on
    the disc, then the original cutscene or Gazel scene.
-3. **No new assets.** Weltall cannot import models or FMV. Every new map reuses an existing
-   map's geometry; every boss is an existing battle formation; every "cutscene" is an
-   in-engine scripted scene. Music can be replaced per track if ever needed.
+3. **The game's own assets first.** Weltall cannot import models or FMV. Every new map reuses
+   an existing map's geometry; every boss is an existing battle formation; every "cutscene"
+   is an in-engine scripted scene. Sprites a map lacks are borrowed from the disc map that
+   has them (`sprite N from map K slot S`, an engine addition carried in `engine/` and in
+   the upstream PR); Gears are global models (`SetGearModel`). New art is made only for
+   things no disc holds, and goes in through Weltall's texture replacement (a PNG per
+   original texture or sprite sheet, same cell layout).
 4. **NPC dialogue is the texture.** Disc 1 is dense with talk-to-anyone lines. Each town
    revisit here gets a full NPC pass that reflects the state of the world (mutations,
    Nisan refugees, the peace treaty, the war).
