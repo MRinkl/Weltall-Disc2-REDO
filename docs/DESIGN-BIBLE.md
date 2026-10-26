@@ -183,9 +183,13 @@ Narrated: Nortune's Central District is Roni Fatima's hidden battleship; Bart ac
 
 The biggest conversion and the heart of the redo.
 
-- **Maps:** one Soylent facility built from Ethos HQ / Zeboim lab / Solaris lab geometry
-  (`from`), 5–7 rooms: gate, holding halls (Wels NPCs with lines, including Elly's named
-  former comrades), the processing line, the tank room.
+- **Maps (as built):** the facility is the disc's own cut dungeon: Disc 2 maps 621 (gate
+  hall), 620 (holding hall, Wels with empty talk scripts) and 622 (the tank room with the
+  Sufal Mass's breakout scripted) are walkable; R3's rooms 742/743/744 are `from` them,
+  so nothing is borrowed from Ethos or Zeboim and no art is made. Three rooms in v1: gate
+  hall (Citan names the place; seven Wels with lines), holding hall (a Gebler soldier of
+  Elly's Bledavik unit asks the "haves" question to her face), the processing line (the
+  queue for the tank; the System goes out of control; the original's own breakout script).
 - **Play:** the party (Fei, Elly, Citan + one) enters at the request of a Nisan refugee
   whose family "went to be saved". Talk-to-everyone lines are the "haves and have-nots"
   exchange from the script, now as NPC dialogue rather than Elly's summary.

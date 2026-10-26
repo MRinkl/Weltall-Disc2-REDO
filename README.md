@@ -27,9 +27,14 @@ docs/   design bible, map register, story-value register
 
 ## Status
 
-R4 (Ramsus' assault on Nisan, played as Elly) is written and under test: three documents,
-a branch in the chair map, two maps of their own on Nisan's town and cathedral front, and a
-test that plays it against the original session. See the build order in the bible.
+- **R4** (Ramsus' assault on Nisan, played as Elly): done; its play test passes against the
+  original session (USA Disc 1, with and without Perfect Works Build).
+- **R3** (the Soylent System facility, Fei/Elly/Citan): four documents written on the disc's
+  own cut-dungeon maps (621/620/622); the documents parse; the play test
+  (`SoylentContentTests.cpp`) is written but not yet run against a disc. Optional second and
+  third sites and the Nisan clinic NPC pass are not in v1.
+
+See the build order in the bible.
 
 ## Requirements
 
