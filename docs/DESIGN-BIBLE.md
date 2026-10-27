@@ -251,9 +251,14 @@ the rotting nucleus, Razael's cavern.
 
 ### R7. Chapter 62 — "Golgoda" (Elly alone)  — Size M
 
-- **Play as Elly:** Shevat hangar scene with Renk, Helmholz, Stratski, Vance, Broyer as
-  NPCs (their lines exist verbatim). Fly El-Regrs to a new world-map location "Golgoda"
-  (reuse the crucifix field geometry from the existing Golgoda scene map).
+- **Play as Elly (as built):** the Shevat hangar walked on map 164's floor (the hangar
+  map that carries her unit's own uniforms; the flight's map 657 cannot show text), Elly
+  alone, with Renk, Helmholz, Stratski, Vance and Broyer waiting by the last Omnigear and
+  two of Shevat's mechanics; each has words of their own to talk to, and the farewell is
+  the chair's own scene, map 617's messages 60 to 84 by reference, spoken where they
+  stand. The chair keeps its two pages before (the climb, Krelian's call, the departure).
+  Not built: flying to Golgoda as a place; there is no Golgoda field map, only the chair's
+  stills, and the confrontation and Battle 14 are already dialogue there.
 - **Battle:** Rattan and Mugwort, existing formations, solo Elly in her Omnigear. The
   script has her lose, stand, and win; we script a two-phase fight: phase one ends on a
   scripted KO, phase two is the real fight.
@@ -413,3 +418,12 @@ Hard-won in R3 and R2; every new room must respect them.
   leave as the original leaves them.
 - **The chair's save prompt** (`Save current data? / Continue the game?`) is answered in
   tests by moving the cursor to the last option (`Don't save`, `Start`).
+- **The chair's nine-line pages cannot be shown on a map of its own**: referenced from map
+  617 (`message X from map 617 message 58`), the window types six lines and never goes on,
+  whatever the base map, window style or lines given. Leave such pages in the chair and
+  cut in after them. Pages of up to nine lines from a scene map's own table (653, 655)
+  do show.
+- **A window the map actor (actor 0) opens takes no button**; open pages from a scene
+  actor.
+- **Saved variables 0x030 and 0x036 record the map the game came from**: a room of its
+  own leaves its own number there, so a state comparison excludes them.
