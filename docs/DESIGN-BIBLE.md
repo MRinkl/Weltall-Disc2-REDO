@@ -187,7 +187,7 @@ The biggest conversion and the heart of the redo.
   hall), 620 (holding hall, Wels with empty talk scripts) and 622 (the tank room with the
   Sufal Mass's breakout scripted) are walkable; R3's rooms 742/743/744 are `from` them,
   so nothing is borrowed from Ethos or Zeboim and no art is made. Three rooms in v1: gate
-  hall (Citan names the place; seven Wels with lines), holding hall (a Gebler soldier of
+  hall (Citan names the place; six Wels with lines, map 621 allowing 20 actors), holding hall (a Gebler soldier of
   Elly's Bledavik unit asks the "haves" question to her face), the processing line (the
   queue for the tank; the System goes out of control; the original's own breakout script).
 - **Play:** the party (Fei, Elly, Citan + one) enters at the request of a Nisan refugee
