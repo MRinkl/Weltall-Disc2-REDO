@@ -31,7 +31,7 @@ docs['golgoda-way-in.txt'] = """; Elly's leaving for Golgoda, played. The chair'
 ; hangar's floor, a map of its own, with Elly alone and the story at her decision's value, and from there goes to
 ; the same Golgoda session with the story back at the original's value.
 map 617
-detour @0x1BD0 to Hangar StartScriptWaitEnd actor11 script5@1
+detour @0x099A to Hangar SetVar var[400] #1
 Hangar:
     SetVar var[000] #292
     ChangeMap #751 #0
@@ -59,13 +59,16 @@ UNIT = [  # actor, model, x, z, facing, name, face, idle line (map 164's uniform
 ]
 
 hangar = """; Shevat's hangar on the night Elly leaves for Golgoda, played: the hangar map that has her unit's own sprites (map
-; 164, the hangar the story brings her unit to), with them waiting by the last Omnigear. The chair has told of her
-; climb and of Krelian's call and of her departure in its own pages; here her unit's farewell is the chair's own
-; scene (map 617's messages 60 to 84), spoken where they stand. From the Omnigear the game goes to Golgoda, the
+; 164, the hangar the story brings her unit to), with them waiting by the last Omnigear. The chair's pages of her
+; climb and Krelian's call are read at her arrival and its page of her departure at the end, from the disc; her
+; unit's farewell is the chair's own scene (map 617's messages 60 to 84), spoken where they stand. From the Omnigear the game goes to Golgoda, the
 ; chair's session that plays it (map 619, entrance 3), the story at the original's value.
 map 751 from 164
 
 """ + "".join(f"message Line{n} from map 617 message {n}\n" for n in range(60, 85)) + """
+message Ascend from map 617 message 58
+message Depart from map 617 message 59
+
 message RenkIdle
 {
 Renk
@@ -122,7 +125,7 @@ there since the call
 came in.{page}Nobody told them to."
 }
 
-actors 20
+actors 21
 unsigned 00A-00E 026-02A 030 036 080-0BE 402-40A
 entrances
 ; The hangar's west end, where Elly comes in.
@@ -190,10 +193,23 @@ actor 19 script 0:
     SetCollisionSize 20 10 120 0
     SetCollisionFlags #1
     End
-; Her arrival: the player has her at once (the chair has told of the climb and the call).
-actor 19 script 1:
-    SetVarFalse Scene
+; Her arrival: the chair's page of the climb and the call, read beside her (a window closes at once when its speaker
+; is off screen, so the page's actor stands where she comes in).
+actor 20 script 0:
+    SetHiddenModel
+    DisableTalk
+    SetPosition #-1031 #-268
     End
+actor 20 script 1:
+    DisablePlayer
+    Wait #30
+    SetWindowLayoutVar #0 #0 #0 #0 #1
+    MessageCentered Ascend 83
+    WaitMessageClosed
+    SetWindowLayoutVar #0 #0 #0 #0 #0
+    SetVarFalse Scene
+    EnablePlayer
+    StopAndHalt
 actor 19 script 3:
     If Scene == #0 else Begun
     SetVarTrue Scene
@@ -205,6 +221,10 @@ actor 19 script 3:
     (72, 'actor12', 65), (73, 'actor2', 1), (74, 'actor16', 66), (75, 'actor2', 1), (76, 'actor13', 69), (77, 'actor2', 1),
     (78, 'actor2', 1), (79, 'actor2', 1), (80, 'actor15', 68), (81, 'actor2', 1), (82, 'actor2', 1), (83, 'actor12', 65),
     (84, 'actor2', 1)]) + """    Wait #30
+    SetWindowLayoutVar #0 #0 #0 #0 #1
+    MessageCentered Depart 83
+    WaitMessageClosed
+    SetWindowLayoutVar #0 #0 #0 #0 #0
     ScreenFade #1 #0 #0 #0 #45
     Wait #45
     GearMode 1
@@ -217,7 +237,7 @@ actor 19 script 3:
 Begun:
     End
 """
-docs['golgoda-hangar.txt'] = finish(hangar.replace('{PARTY}', party), 20)
+docs['golgoda-hangar.txt'] = finish(hangar.replace('{PARTY}', party), 21)
 
 for name, text in docs.items():
     check_widths(name, text)

@@ -227,10 +227,14 @@ Narrated with full dialogue; one of the best scenes in the game, told over four 
 
 ### R5. Chapter 60a — "The Night Before" (Nisan, Mahanon eve)  — Size S
 
-Already dialogue, shown as a cutscene. We make it a walkable evening in Nisan: the
-Yggdrasil crew's lines (Bart, Citan, Margie, Billy, Maison, Emeralda) become NPC talk,
-the Fei/Elly scene stays verbatim, the morning and the pendant stay verbatim. Adds the
-Margie/Elly bridge conversation as a place you walk to.
+As built: the original's night on the Yggdrasil's deck (map 303) is already played: the
+Fei/Elly argument and the crew's teasing are scenes, then the deck is free to walk with a
+talk line for each of the crew and the door to Elly's room. What was narrated is the
+chair's three pages before it (the scouts' word of Solaris's force on Mahanon, the
+Solarians turned to weapons, the decision to go at dawn). R5 turns those into a briefing
+on the ship's bridge (752 from 290): Sigurd, Citan and Bart at the chart, Fei's "At
+dawn" and Citan's "tell them tonight" leading into the deck's argument; a talk line each,
+and two crewmen. The deck, the morning and the pendant are untouched.
 
 ### R6. Chapter 61 — "Mahanon" (full dungeon)  — Size L
 
@@ -256,7 +260,8 @@ the rotting nucleus, Razael's cavern.
   alone, with Renk, Helmholz, Stratski, Vance and Broyer waiting by the last Omnigear and
   two of Shevat's mechanics; each has words of their own to talk to, and the farewell is
   the chair's own scene, map 617's messages 60 to 84 by reference, spoken where they
-  stand. The chair keeps its two pages before (the climb, Krelian's call, the departure).
+  stand. The chair's two pages (the climb and Krelian's call; the departure) are read in
+  the hangar from the disc, at her arrival and before she boards.
   Not built: flying to Golgoda as a place; there is no Golgoda field map, only the chair's
   stills, and the confrontation and Battle 14 are already dialogue there.
 - **Battle:** Rattan and Mugwort, existing formations, solo Elly in her Omnigear. The
@@ -418,12 +423,23 @@ Hard-won in R3 and R2; every new room must respect them.
   leave as the original leaves them.
 - **The chair's save prompt** (`Save current data? / Continue the game?`) is answered in
   tests by moving the cursor to the last option (`Don't save`, `Start`).
-- **The chair's nine-line pages cannot be shown on a map of its own**: referenced from map
-  617 (`message X from map 617 message 58`), the window types six lines and never goes on,
-  whatever the base map, window style or lines given. Leave such pages in the chair and
-  cut in after them. Pages of up to nine lines from a scene map's own table (653, 655)
-  do show.
-- **A window the map actor (actor 0) opens takes no button**; open pages from a scene
-  actor.
+- **A message's speaker must be on screen**: a window whose speaker (the anchor actor, or
+  the hidden actor itself for a centered page) is off screen is closed at once and the
+  script spins on it. Put a page's hidden actor where the party stands, and start a
+  trigger scene where its speakers are in view. (R7's first attempt put the arrival page's
+  actor 300 units from Elly; the symptom looked like text that never finished.)
+- **A trigger scene must be guarded by a flag that is never reset**: a party standing in
+  the trigger touches it again the moment the scene ends and `EnablePlayer` runs, and
+  the scene loops. `Scene` holds the party; a separate `Met`/`Briefed` flag guards.
+- **A scene in an actor's script 1 must end with `StopAndHalt`, not `End`**: script 1 is
+  the actor's main loop and the machine restarts it whenever the actor has no thread, so a
+  scene ending in `End` replays forever (the originals' scenes end `EnablePlayer;
+  StopAndHalt`). The boilerplate `End` of unused scripts is harmless.
+- **A test's `PlayerHasPartyIn` is true at a map's first frame**, before any script has
+  run: for a scene that starts by itself, wait for the lock first (`SceneHoldsIn`).
+- **The chair's nine-line pages do show on a map of its own** (`message X from map 617
+  message 58`, `SetWindowLayoutVar #0 #0 #0 #0 #1`, `MessageCentered X 83`) once the
+  page's hidden actor stands beside the party and the script ends with `StopAndHalt`;
+  R7's hangar reads them that way.
 - **Saved variables 0x030 and 0x036 record the map the game came from**: a room of its
   own leaves its own number there, so a state comparison excludes them.
