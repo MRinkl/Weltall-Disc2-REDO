@@ -29,6 +29,9 @@ docs/   design bible, map register, story-value register
 
 - **R4** (Ramsus' assault on Nisan, played as Elly): done; its play test passes against the
   original session (USA Disc 1, with and without Perfect Works Build).
+- **R6** (Mahanon, Fei/Citan/Bart): done; the wreck walked (749 from 653) and Razael's
+  cavern walked (750 from 655) with the original's scene continuing past the pages said;
+  both play tests (`MahanonContentTests.cpp`) pass against the original.
 - **R2** (Nortune's secret battleship, Fei/Bart/Rico): four rooms on Disc 1's Kislev maps
   (198 gate, 237 audience room, 231 tactical command, 234 bridge): done; the play test
   (`NortuneContentTests.cpp`) passes against the original session (USA undub v1.01 disc).

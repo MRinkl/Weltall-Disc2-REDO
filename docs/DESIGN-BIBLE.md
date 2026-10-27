@@ -237,9 +237,15 @@ Margie/Elly bridge conversation as a place you walk to.
 The game plays one hallway. The script describes: interceptor battle, control room,
 the rotting nucleus, Razael's cavern.
 
-- **Maps:** the existing Mahanon hallway `over` plus 3–4 new rooms on Eldridge-looking
-  geometry (the intro-movie ship is not a field map; use Solaris/Zeboim machine
-  interiors and the Merkava core-room geometry for the Razael cavern).
+- **Maps (as built):** nothing borrowed; the narrated scenes' own floors are walkable.
+  749 from 653 (the wreck: the camera's flight becomes a walk from the hull's breach up
+  the hall and around the ring; the flight's three pages are the ship's log and the
+  hull's ribs, read from the disc; Fei, Citan and Bart at each), the original hallway
+  654 unchanged (nucleus battle), 750 from 655 (Razael's cavern walked from its edge to
+  the two lights, the narration's cavern pages said on the way), then the original scene
+  on 655 with those pages passed over (the descent, the data, Krelian, Grahf untouched).
+  Not in v1: the interceptor battle (the chair's Battle 14 is another chapter's) and a
+  control room; the party's lines carry the ship's "accident" instead.
 - **Battles:** existing nucleus formation; Grahf's scripted loss stays a loss.
 - **Rejoin:** Krelian's "Golgoda" line, Elly's pendant scene.
 
@@ -394,7 +400,14 @@ Hard-won in R3 and R2; every new room must respect them.
   step away and holds the pad toward it (`WalkIntoTrigger`). Entrances and triggers must
   be on the walkmesh (`WeltallWalkText DISC probe MAP X Z`); an entrance inside an NPC's
   collision box leaves the leader stuck.
-- **A map of its own may not have more script actors than its base** (map 621: 20).
+- **A map of its own may not have more script actors than its base** (map 621: 20; map
+  653: 5, so one trigger actor serves three stops by moving on after each). Base actor
+  definitions beyond the declared count become scenery; declare them and `RemoveActor
+  self` when they would show (the cavern's Krelian and soldiers).
+- **Leave a map as the original leaves it**: the saved map variable (0x03C) records the
+  exact instruction's operand (`ChangeMapTransition #17038` for 654, not `ChangeMap #654`).
+- **A detour may re-enter the original mid-script** (`Jump @offset`), so a scene can skip
+  pages a walk has already said, guarded by the story value.
 - **`SetCollisionSize` operands are bytes** (≤255). Map-local `var[4xx]` reset on every
   map entry; nothing carries between rooms but saved variables, which the rejoin must
   leave as the original leaves them.
