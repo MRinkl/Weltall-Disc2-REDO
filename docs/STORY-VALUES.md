@@ -31,7 +31,7 @@ both discs have been scanned for every value they set and test (needs Disc 1 in 
 | Seq. | Chapter | Value | Status |
 |---|---|---|---|
 | R4 Nisan assault (Elly) | 58 (263–280) | **269** | done, tests pass. The session plays at 268 (Weltall's own subtitle "Holy Mother Returns" sits there). Branch: map 617, entrance 3, `@0x0890 StartScriptWaitEnd actor31 script12@1`; rejoin: story 268, party Fei, 9, Elly, `ChangeMap #273 #12` |
-| R3 Soylent facility (Fei, Elly, Citan) | 57 (252–262) | **259** | written; play test pending a disc. Branch: map 673 (Krelian's lab), entrance 1, `@0x0237 ChangeMap #621 #0`; rooms 742 (from 621), 743 (from 620), 744 (from 622); rejoin: story 258, `ChangeMap #622 #1` (the fight entrance: prep menu, Sufal Mass, Elly's blood and speech, all original). No disc script tests 258–262. |
+| R3 Soylent facility (Fei, Elly, Citan) | 57 (252–262) | **259** | done; play test passes. Branch: map 673 (Krelian's lab), entrance 1, `@0x0237 ChangeMap #621 #0`; rooms 742 (from 621), 743 (from 620), 744 (from 622); rejoin: story 258, `ChangeMap #622 #1` (the fight entrance: prep menu, Sufal Mass, Elly's blood and speech, all original). No disc script tests 258–262. |
 | R2 Nortune | 57 (252–262) | TBD | |
 | R1 Nisan defence | 57 (252–262) | TBD | |
 | R5 Mahanon eve | 60 (285–287) | TBD | chair map 617 → `ChangeMap #303 #3` |
