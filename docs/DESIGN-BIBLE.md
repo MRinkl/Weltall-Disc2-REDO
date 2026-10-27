@@ -165,8 +165,14 @@ Narrated: "After we pushed back the Solarian Gear units, we headed for Nortune�
 
 Narrated: Nortune's Central District is Roni Fatima's hidden battleship; Bart activates it.
 
-- **Maps:** Nortune (Disc 1 Kislev capital maps: A/B/C/D blocks, Imperial Palace).
-  New "under the Palace" rooms on Zeboim/Solaris facility geometry (`from`), 2–3 rooms.
+- **Maps (as built):** four rooms `from` the Disc 1 Kislev maps, nothing borrowed: 745
+  from 198 (A Block east gate under curfew; the Imperial Guard; Rico gets them through),
+  746 from 237 (the Kaiser's audience room: Sigmund refuses, Rico brings the Battling
+  Committee's archive, Sigmund yields), 747 from 231 (the tactical command room: three
+  control stations in any order, Bart at each; the lift runs at three), 748 from 234 (the
+  Kaiser's bridge: Sigmund names Rico his son before his officers; Bart takes the ship).
+  The rising, the narration over it and the Yggdrasil IV battle are the original's own
+  scene at 198 #8, entered from the bridge.
 - **Play:** Rico leads the party into Nortune under curfew. Sigmund refuses, then yields
   when Hammer's old network (now Rico's) produces Roni's records from the Battling
   archive. Puzzle: raise the district (three control rooms, in any order).
@@ -373,3 +379,24 @@ capture of the new scene.
    deferred?
 3. Epilogue (R11) as a post-credits prompt (default) or as a mandatory scene before the
    credits?
+
+## Engine rules learned (Weltall map documents)
+
+Hard-won in R3 and R2; every new room must respect them.
+
+- **Script 1 runs by itself** at the map's start for every actor (the party's
+  `PlayerControlStep`, a scene "at once"). A scene a trigger starts goes in script 4 or
+  higher; `StartScript actorN script4@3`.
+- **A touch trigger must not `DisableTalk`**: it sets the flag that blocks touching too.
+  Hidden trigger: `SetHiddenModel; SetPosition; SetStateFlags 0 0x2000; SetStateFlags 3
+  0x4; SetCollisionSize; SetCollisionFlags #1`, script 3 for the touch, script 2 for talk.
+- **Touch fires by walking into the trigger**, not by standing on it: a test enters a
+  step away and holds the pad toward it (`WalkIntoTrigger`). Entrances and triggers must
+  be on the walkmesh (`WeltallWalkText DISC probe MAP X Z`); an entrance inside an NPC's
+  collision box leaves the leader stuck.
+- **A map of its own may not have more script actors than its base** (map 621: 20).
+- **`SetCollisionSize` operands are bytes** (≤255). Map-local `var[4xx]` reset on every
+  map entry; nothing carries between rooms but saved variables, which the rejoin must
+  leave as the original leaves them.
+- **The chair's save prompt** (`Save current data? / Continue the game?`) is answered in
+  tests by moving the cursor to the last option (`Don't save`, `Start`).

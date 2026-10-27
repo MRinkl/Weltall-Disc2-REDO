@@ -575,7 +575,7 @@ entrances
 entrance x -84 z -291 layer 0 camera keep facing 0
 ; A step before each station (the tests' way in).
 entrance x -440 z -55 layer 0 camera keep facing 4
-entrance x -150 z 90 layer 0 camera keep facing 0
+entrance x -160 z -55 layer 0 camera keep facing 2
 entrance x 1240 z -155 layer 0 camera keep facing 4
 ; A step before the lift's way in with the three stations set (the tests' way in).
 entrance x 397 z -60 layer 0 camera keep facing 4
@@ -615,7 +615,7 @@ KeelDone:
 ; The lift engines' station.
 actor 13 script 0:
     SetHiddenModel
-    SetPosition #-150 #150
+    SetPosition #-100 #-55
     SetStateFlags 0 0x2000
     SetStateFlags 3 0x4
     SetCollisionSize 30 10 30 0

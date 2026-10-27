@@ -32,7 +32,7 @@ both discs have been scanned for every value they set and test (needs Disc 1 in 
 |---|---|---|---|
 | R4 Nisan assault (Elly) | 58 (263–280) | **269** | done, tests pass. The session plays at 268 (Weltall's own subtitle "Holy Mother Returns" sits there). Branch: map 617, entrance 3, `@0x0890 StartScriptWaitEnd actor31 script12@1`; rejoin: story 268, party Fei, 9, Elly, `ChangeMap #273 #12` |
 | R3 Soylent facility (Fei, Elly, Citan) | 57 (252–262) | **259** | done; play test passes. Branch: map 673 (Krelian's lab), entrance 1, `@0x0237 ChangeMap #621 #0`; rooms 742 (from 621), 743 (from 620), 744 (from 622); rejoin: story 258, `ChangeMap #622 #1` (the fight entrance: prep menu, Sufal Mass, Elly's blood and speech, all original). No disc script tests 258–262. |
-| R2 Nortune | 57 (252–262) | TBD | |
+| R2 Nortune (Fei, Bart, Rico) | 57 (252–262) | **254** | done; play test passes. Weltall's own subtitle "Secret Battleship" already sat at 254, so the card needs no new line. Branch: map 618 (Fei's chair), entrance 0, session 1, `@0x0740 ChangeMap #198 #8` (after the save prompt and `SetVarBit var[248] #2`); rooms 745 (from 198, the gate under curfew), 746 (from 237, the Kaiser's hall), 747 (from 231, the tactical command room: three stations, any order), 748 (from 234, the bridge); rejoin: `PartyRemove 3/5`, story 252, `ChangeMap #198 #8` (the original's scene: the rising narrated, Battle 8, back to the chair's session 2). Way back: 254 → map 198 entrance 8 at 252. No disc script tests 253–257. |
 | R1 Nisan defence | 57 (252–262) | TBD | |
 | R5 Mahanon eve | 60 (285–287) | TBD | chair map 617 → `ChangeMap #303 #3` |
 | R6 Mahanon | 61 (288–289) | TBD | narration map 619 |
@@ -62,6 +62,17 @@ both discs have been scanned for every value they set and test (needs Disc 1 in 
 - The chair's sessions are picked by entrance (`var[002]`) on map 617, not by progress, and
   flags in `var[248]` (bits 2, 3, 4, 8) mark which sessions have been seen. A sequence that
   replaces a session must leave those bits as the session would.
+
+## Nortune's rising is one scene map and one battle
+
+The original's Nortune stretch is: Fei's chair session 1 (map 618 #0: narration msg0, a
+save prompt, `SetVar var[054] #11`, `SetVarBit var[248] #2`) → map 198 entrance 8 (A Block
+gate at night: the party reset to Bart, camera flights over the district, narration
+msg39–42, `SetCharacterGear #3 #18`, `BattleThenMap #8 ... #618 #0`) → session 2 (`SetAcc
+#258` → map 273 #9). R2 cuts in after the bit is set and rejoins at 198 #8 with the
+story back at 252, so the rising, the battle and the chair's bookkeeping stay the
+original's. Rico is character 5, Bart 3; Sigmund's portrait is face 76 (model 2 on 237,
+model 1 on 231/234); map 234 draws everyone at `SetScale #2500`.
 
 ## The Soylent facility is the game's own cut dungeon
 
